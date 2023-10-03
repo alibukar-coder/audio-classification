@@ -22,10 +22,10 @@ from pathlib import Path
 # Constants
 RESAMPLE_RATE = 8000
 TITLE = "Voice-based Age Verification"
-DESP = ("Press the record button and say 'I am happy or I am hungry'")
+DESP = ("Press the record button and say: I am happy or I am hungry")
 
 # Define a function to load the classifiers
-def load_models()-> Tuple[SVMClassifier, RandomForestClassifier, XGBClassifier]:
+def load_models():
     """Load trained models"""
 
     with open('svm_classifier.pkl', 'rb') as svm_file:
@@ -46,7 +46,7 @@ def get_label(res_val: no.ndarray)-> str:
     else:
         return 'Child'
 
-def preprocess(waveform: np.ndarray, sample_rate: int) -> torch.Tensor:
+def preprocess(waveform: np.ndarray, sample_rate: int):
     """Resample and extract relevant section of audio"""
     
     #convert and reshape waveform
@@ -90,7 +90,7 @@ def get_features(audio: torch.Tensor)-> np.ndarray:
 
     return features
 
-def make_prediction(features: np.ndarray, models: Tuple[SVMClassifier, RandomForestClassifier, XGBClassifier]) -> str:
+def make_prediction(features, models):
     """Make prediction using ensemble of models"""
 
     svm_pred = models[0].predict(features)
