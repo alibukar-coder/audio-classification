@@ -56,7 +56,6 @@ demo = gr.Interface(
     main,
     gr.Audio(source="microphone"),
     outputs="text",
-    interpretation="default",
     allow_flagging="never", 
     title=TITLE, 
     description=DESP,
