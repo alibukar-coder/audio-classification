@@ -61,7 +61,7 @@ def preprocess(waveform: np.ndarray, sample_rate: int):
     resampled = T.Resample(sample_rate, RESAMPLE_RATE, dtype=waveform.dtype)(waveform)
 
     # Convert the start and end times to sample indices
-    end_sample = int(0.9375*resample_rate)
+    end_sample = int(0.9375*RESAMPLE_RATE)
     
     # Extract first second 
     extracted = resampled[:, 0:end_sample]
@@ -100,8 +100,8 @@ def make_prediction(features, models):
 
     # Collect all predictions
     predictions = [svm_pred[0], rf_pred[0], xgb_pred[0]]
-
-    voted_res = max(predictions, key=predictions.get)
+    countt = Counter(predictions)
+    voted_res = countt.most_common()
 
     if voted_res == 1:
         return 'Adult voice detected'
