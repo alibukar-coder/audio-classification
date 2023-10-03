@@ -39,7 +39,7 @@ def load_models():
 
     return svm_model, rf_model, xgb_model
 
-def get_label(res_val: no.ndarray)-> str:
+def get_label(res_val):
     result = int(res_val[0])
     if result == 1:
         return 'Adult'
