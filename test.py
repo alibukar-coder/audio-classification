@@ -22,44 +22,55 @@ from pathlib import Path
 # Constants
 RESAMPLE_RATE = 8000
 TITLE = "Voice-based Age Verification"
-DESP = ("Press the record button and say 'I am happy or I am hungry'")
+DESP = ("Press the record button and say - I am happy or I am hungry")
 # port = int(os.environ.get('PORT', 8000))
 
 
-def main(audio):
-    rate, waveform = audio
-    # try:
-    #     rate, waveform = audio
-    # except Exception as e:
-    #     return f"Error processing audio: {e}" 
+# def main(audio):
+#     rate, waveform = audio
+#     # try:
+#     #     rate, waveform = audio
+#     # except Exception as e:
+#     #     return f"Error processing audio: {e}" 
 
-    # #load models
-    # svm_classifier, rf_classifier, xgb_classifier = load_models()
+#     # #load models
+#     # svm_classifier, rf_classifier, xgb_classifier = load_models()
 
-    # #preprocess waveform
-    # preprocessed = preprocess(waveform, rate)
+#     # #preprocess waveform
+#     # preprocessed = preprocess(waveform, rate)
 
-    # #get features
-    # features = get_features(preprocessed)
+#     # #get features
+#     # features = get_features(preprocessed)
 
-    # if features is None:
-    #     return "Empty audio input"
+#     # if features is None:
+#     #     return "Empty audio input"
 
-    # #get prediction
-    # prediction = make_prediction(features, (svm_classifier, rf_classifier, xgb_classifier))
+#     # #get prediction
+#     # prediction = make_prediction(features, (svm_classifier, rf_classifier, xgb_classifier))
 
-    prediction = "Debug: Main"
+#     prediction = "Debug: Main"
     
-    return prediction
+#     return prediction
 
-demo = gr.Interface(
-    fn=main,
-    gr.Audio(source="microphone"),
-    outputs="text",
-    allow_flagging="never", 
-    title=TITLE, 
-    description=DESP,
-)
+# demo = gr.Interface(
+#     fn=main,
+#     gr.Audio(source="microphone"),
+#     outputs="text",
+#     allow_flagging="never", 
+#     title=TITLE, 
+#     description=DESP,
+# )
+
+def reverse_audio(audio):
+    sr, data = audio
+    return (sr, np.flipud(data))
+
+
+demo = gr.Interface(fn=reverse_audio, 
+                    inputs="microphone", 
+                    outputs="audio", title=TITLE, allow_flagging="never",
+                    description=DESP,
+                    cache_examples=True)
 
 if __name__ == "__main__":
     # demo.launch(debug=True)
