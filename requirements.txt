@@ -1,6 +1,6 @@
 gradio
 numpy
-sklearn
+scikit-learn
 torch
 torchaudio
 xgboost
