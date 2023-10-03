@@ -38,6 +38,8 @@ def load_models():
     with open('xgb_classifier.pkl', 'rb') as xgb_file:
         xgb_model = pickle.load(xgb_file)
 
+    print('Debug Models Loaded!!!')
+
     return svm_model, rf_model, xgb_model
 
 def get_label(res_val):
@@ -109,6 +111,7 @@ def make_prediction(features, models):
         return 'Child voice detected'
 
 def main(audio):
+    print('Debug: Main')
     try:
         rate, waveform = audio
     except Exception as e:
