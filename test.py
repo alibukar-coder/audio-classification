@@ -53,7 +53,7 @@ def main(audio):
     return prediction
 
 demo = gr.Interface(
-    main,
+    fn=main,
     gr.Audio(source="microphone"),
     outputs="text",
     allow_flagging="never", 
