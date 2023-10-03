@@ -27,6 +27,7 @@ DESP = ("Press the record button and say 'I am happy or I am hungry'")
 
 
 def main(audio):
+    rate, waveform = audio
     # try:
     #     rate, waveform = audio
     # except Exception as e:
