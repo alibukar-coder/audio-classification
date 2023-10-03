@@ -47,7 +47,7 @@ def get_label(res_val):
     else:
         return 'Child'
 
-def preprocess(waveform: np.ndarray, sample_rate: int):
+def preprocess(waveform, sample_rate):
     """Resample and extract relevant section of audio"""
     
     #convert and reshape waveform
@@ -68,7 +68,7 @@ def preprocess(waveform: np.ndarray, sample_rate: int):
     
     return extracted
 
-def get_features(audio: torch.Tensor)-> np.ndarray:
+def get_features(audio):
     """Extract MFCC features"""
     
     mfcc_transform = T.MFCC(
