@@ -1,8 +1,4 @@
 ffmpy
-ffmpeg
-ffmpeg-python
-ffprobe
-ffprobe-python
 gradio
 numpy
 scikit-learn
