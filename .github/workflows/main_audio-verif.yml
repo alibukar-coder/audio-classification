@@ -27,6 +27,10 @@ jobs:
           python -m venv venv
           source venv/bin/activate
       
+      - name: install the ffmpeg
+        run: |
+          sudo apt-get install ffmpeg
+      
       - name: Install dependencies
         run: pip install -r requirements.txt
         
