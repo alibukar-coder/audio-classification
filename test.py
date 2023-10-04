@@ -10,10 +10,15 @@ def reverse_audio(audio):
     sr, data = audio
     return (sr, np.flipud(data))
 
+def trial(input):
+    # sr, data = audio
+    return input
 
-demo = gr.Interface(fn=reverse_audio, 
-                    inputs="microphone", 
-                    outputs="audio", title=TITLE, allow_flagging="never",
+
+demo = gr.Interface(fn=trial, 
+                    inputs="text",#"microphone", 
+                    outputs="text",#"audio", 
+                    title=TITLE, allow_flagging="never",
                     description=DESP,
                     cache_examples=True)
 
