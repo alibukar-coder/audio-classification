@@ -15,9 +15,9 @@ def trial(input):
     return input
 
 
-demo = gr.Interface(fn=reverse_audio, 
-                    inputs="microphone",#"microphone", 
-                    outputs="audio",#"audio", 
+demo = gr.Interface(reverse_audio, 
+                    gr.Audio(source="microphone, type="numpy, label="Speak here..."),
+                    outputs="audio", 
                     title=TITLE, allow_flagging="never",
                     description=DESP,
                     cache_examples=True)
