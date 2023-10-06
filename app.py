@@ -22,7 +22,7 @@ from pathlib import Path
 # Constants
 RESAMPLE_RATE = 8000
 TITLE = "Voice-based Age Verification"
-DESP = ("Press the record button and say: I am happy or I am hungry")
+DESP = ("Press the record button and say: I am happy or I am hungry or any other sentence :-)")
 port = int(os.environ.get('PORT', 8000))
 
 # Define a function to load the classifiers
