@@ -104,10 +104,11 @@ def make_prediction(features, models):
     countt = Counter(predictions)
     voted_res = countt.most_common()
 
-    if voted_res == 1:
-        return 'Adult voice detected'
-    else:
-        return 'Child voice detected'
+    #if voted_res == 1:
+        #return 'Adult voice detected'
+    #else:
+        #return 'Child voice detected'
+    return str(int(predictions[0]))+' '+str(int(predictions[1]))+' '+str(int(predictions[2]))
 
 def main(audio):
     print('Debug: Main')
