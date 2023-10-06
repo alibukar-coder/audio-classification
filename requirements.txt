@@ -1,7 +1,7 @@
-ffmpy
-gradio
-numpy
-scikit-learn
+ffmpy==0.3.1
+gradio==3.47.1
+numpy==1.23.5
+scikit-learn==1.2.2
 torch
 torchaudio
-xgboost
+xgboost==2.0.0
