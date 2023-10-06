@@ -15,8 +15,7 @@ import numpy as np
 import pickle
 from collections import Counter
 from sklearn.svm import SVC
-from sklearn.ensemble import RandomForestClassifier
-import xgboost as xgb
+from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier
 from pathlib import Path
 
 # Constants
@@ -35,12 +34,12 @@ def load_models():
     with open('rf_classifier.pkl', 'rb') as rf_file:
         rf_model = pickle.load(rf_file)
 
-    with open('xgb_classifier.pkl', 'rb') as xgb_file:
-        xgb_model = pickle.load(xgb_file)
+    with open('xg_classifier.pkl', 'rb') as xg_file:
+        xg_model = pickle.load(xg_file)
 
     print('Debug Models Loaded!!!')
 
-    return svm_model, rf_model, xgb_model
+    return svm_model, rf_model, xg_model
 
 def get_label(res_val):
     result = int(res_val[0])
