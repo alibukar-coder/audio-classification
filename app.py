@@ -141,6 +141,7 @@ demo = gr.Interface(
     allow_flagging="never", 
     title=TITLE, 
     description=DESP,
+    examples=[["wav1.wav"]],
 )
 
 if __name__ == "__main__":
